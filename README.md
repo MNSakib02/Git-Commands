@@ -10,14 +10,16 @@ For example, if we want to download a project from Github, all we need to do is 
 
 
 This will make a copy of the project to your local workspace so you can start working with it.
+
 2. Git branch
 
 Branches are highly important in the git world. By using branches, several developers are able to work in parallel on the same project simultaneously. We can use the git branch command for creating, listing and deleting branches.
 
 Creating a new branch:
 git branch <branch-name>
+This command will create a branch locally. 
 
-This command will create a branch locally. To push the new branch into the remote repository, you need to use the following command:
+To push the new branch into the remote repository, you need to use the following command:
 git push -u <remote> <branch-name>
 
 Viewing branches:
@@ -25,6 +27,7 @@ git branch or git branch --list
 
 Deleting a branch:
 git branch -d <branch-name>
+
 3. Git checkout
 
 This is also one of the most used Git commands. To work in a branch, first you need to switch to it. We use git checkout mostly for switching from one branch to another. We can also use it for checking out files and commits.
@@ -40,6 +43,7 @@ There is also a shortcut command that allows you to create and switch to a branc
 git checkout -b <name-of-your-branch>
 
 This command creates a new branch in your local (-b stands for branch) and checks the branch out to new right after it has been created.
+
 4. Git status
 
 The Git status command gives us all the necessary information about the current branch. 
@@ -56,6 +60,7 @@ We can gather information like:
     Whether there are files created, modified or deleted
 
 Git status gives information about the branch & files
+
 5. Git add
 
 When we create, modify or delete a file, these changes will happen in our local and won't be included in the next commit (unless we change the configurations).
@@ -75,6 +80,7 @@ To include them, we need to use git add:
 Files with green are now staged with git add
 
 Important: The git add command doesn't change the repository and the changes are not saved until we use git commit.
+
 6. Git commit
 
 This is maybe the most-used command of Git. Once we reach a certain point in development, we want to save our changes (maybe after a specific task or issue).
@@ -85,6 +91,7 @@ We also need to write a short message to explain what we have developed or chang
 git commit -m "commit message"
 
 Important: Git commit saves your changes only locally.
+
 7. Git push
 
 After committing your changes, the next thing you want to do is send your changes to the remote server. Git push uploads your commits to the remote repository.
@@ -97,12 +104,14 @@ or
 git push -u origin <branch_name>
 
 Important: Git push only uploads changes that are committed.
+
 8. Git pull
 
 The git pull command is used to get updates from the remote repo. This command is a combination of git fetch and git merge which means that, when we use git pull, it gets the updates from remote repository (git fetch) and immediately applies the latest changes in your local (git merge).
 git pull <remote>
 
 This operation may cause conflicts that you need to solve manually.
+
 9. Git revert
 
 Sometimes we need to undo the changes that we've made. There are various ways to undo our changes locally or remotely (depends on what we need), but we must carefully use these commands to avoid unwanted deletions.
@@ -121,6 +130,7 @@ new "revert" commit
 The advantage of using git revert is that it doesn't touch the commit history. This means that you can still see all of the commits in your history, even the reverted ones. 
 
 Another safety measure here is that everything happens in our local system unless we push them to the remote repo. That's why git revert is safer to use and is the preferred way to undo our commits.
+
 10. Git merge
 
 When you've completed development in your branch and everything works fine, the final step is merging the branch with the parent branch (dev or master). This is done with the git merge command.
