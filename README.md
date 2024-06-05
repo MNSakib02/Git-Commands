@@ -14,23 +14,28 @@ This will make a copy of the project to your local workspace so you can start wo
 # 2. Git branch
 
 Branches are highly important in the git world. By using branches, several developers are able to work in parallel on the same project simultaneously. We can use the git branch command for creating, listing and deleting branches.
-
 Creating a new branch:
+
 git branch <branch-name>
+
 This command will create a branch locally. 
 
 To push the new branch into the remote repository, you need to use the following command:
+
 git push -u <remote> <branch-name>
 
 Viewing branches:
+
 git branch or git branch --list
 
 Deleting a branch:
+
 git branch -d <branch-name>
 
 # 3. Git checkout
 
 This is also one of the most used Git commands. To work in a branch, first you need to switch to it. We use git checkout mostly for switching from one branch to another. We can also use it for checking out files and commits.
+
 git checkout <name-of-your-branch>
 
 There are some steps you need to follow for successfully switching between branches:
@@ -40,6 +45,7 @@ There are some steps you need to follow for successfully switching between branc
     The branch you want to check out should exist in your local
 
 There is also a shortcut command that allows you to create and switch to a branch at the same time:
+
 git checkout -b <name-of-your-branch>
 
 This command creates a new branch in your local (-b stands for branch) and checks the branch out to new right after it has been created.
@@ -47,6 +53,7 @@ This command creates a new branch in your local (-b stands for branch) and check
 # 4. Git status
 
 The Git status command gives us all the necessary information about the current branch. 
+
 git status
 
 We can gather information like:
@@ -68,9 +75,11 @@ When we create, modify or delete a file, these changes will happen in our local 
 We need to use the git add command to include the changes of a file(s) into our next commit. 
 
 To add a single file:
+
 git add <file>
 
 To add everything at once:
+
 git add -A
 
 When you visit the screenshot above in the 4th section, you will see that there are file names that are red - this means that they're unstaged files. The unstaged files won't be included in your commits.
@@ -88,6 +97,7 @@ This is maybe the most-used command of Git. Once we reach a certain point in dev
 Git commit is like setting a checkpoint in the development process which you can go back to later if needed.
 
 We also need to write a short message to explain what we have developed or changed in the source code.
+
 git commit -m "commit message"
 
 Important: Git commit saves your changes only locally.
@@ -95,12 +105,15 @@ Important: Git commit saves your changes only locally.
 # 7. Git push
 
 After committing your changes, the next thing you want to do is send your changes to the remote server. Git push uploads your commits to the remote repository.
+
 git push <remote> <branch-name>
 
 However, if your branch is newly created, then you also need to upload the branch with the following command:
+
 git push --set-upstream <remote> <name-of-your-branch>
 
 or
+
 git push -u origin <branch_name>
 
 Important: Git push only uploads changes that are committed.
@@ -108,6 +121,7 @@ Important: Git push only uploads changes that are committed.
 # 8. Git pull
 
 The git pull command is used to get updates from the remote repo. This command is a combination of git fetch and git merge which means that, when we use git pull, it gets the updates from remote repository (git fetch) and immediately applies the latest changes in your local (git merge).
+
 git pull <remote>
 
 This operation may cause conflicts that you need to solve manually.
@@ -116,11 +130,14 @@ This operation may cause conflicts that you need to solve manually.
 
 Sometimes we need to undo the changes that we've made. There are various ways to undo our changes locally or remotely (depends on what we need), but we must carefully use these commands to avoid unwanted deletions.
 
-A safer way that we can undo our commits is by using git revert. To see our commit history, first we need to use git log -- oneline:
+A safer way that we can undo our commits is by using git revert. To see our commit history, first we need to use 
+
+git log -- oneline:
 
 commit history of my master branch
 
 Then we just need to specify the hash code next to our commit that we would like to undo:
+
 git revert 3321844
 
 The Git revert command will undo the given commit, but will create a new commit without deleting the older one:
@@ -140,10 +157,13 @@ Git merge basically integrates your feature branch with all of its commits back 
 For example, when you want to merge your feature branch into the dev branch:
 
 First you should switch to the dev branch:
+
 git checkout dev
 
 Before merging, you should update your local dev branch:
+
 git fetch
 
 Finally, you can merge your feature branch into dev:
+
 git merge <branch-name>
